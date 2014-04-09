@@ -1,22 +1,22 @@
-# Pixelator.js
+# Pixelatore
 
 Lightening speed pixelation of images rendered to a `<canvas>`.
 
 ## Module or Module?
 
-There are two ways to use *pixelator.js*:
+There are two ways to use *pixelatore*:
 
-1. include *pixelator.js* in a `<script>` tag.
-2. using [browserify](http://browserify.org), require *pixelator.node.js*.
+1. include *pixelatore* in a `<script>` tag.
+2. using [browserify](http://browserify.org), require *pixelatore*.
 
 ## General Usage
 
 ```javascript
-//tell THE PIXELATOR where and what to draw
-pixelator.init(whereToDraw, whatToDraw);
+//tell THE PIXELATORE where and what to draw
+pixelatore.init(whereToDraw, whatToDraw);
 
-//tell THE PIXELATOR to draw it
-pixelator.draw();
+//tell THE PIXELATORE to draw it
+pixelatore.draw();
 ```
 
 Param *whereToDraw* needs to be any `<canvas>` element, or *the context obtained by `canvas.getContext('2d')`*
@@ -26,23 +26,23 @@ Param *whatToDraw* can be any image drawable by a [canvas](https://developer.moz
 
 ## Pixelate anything! ... thats an image ...
 
-Simply provide the path or url of any image, as well as a `<canvas>` and let *pixelator.js* do the rest.
+Simply provide the path or url of any image, as well as a `<canvas>` and let *pixelatore* do the rest.
 
-Assuming the following setup (if you include *pixelator.js* in a script instead of require it, then you have access to the global object *pixelator* making these examples basically the same):
+Assuming the following setup (if you include *pixelatore* in a script instead of require it, then you have access to the global object *pixelatore* making these examples basically the same):
 ``` javascript
-var pixelator = require('./path/to/pixelator.node.js'),
+var pixelatore = require('./path/to/pixelatore.node.js'),
     canvas = document.getElementById('myCanvas');
 ```
 
-Tell *pixelator.js* where to draw and what to load
+Tell *pixelatore* where to draw and what to load
 ```javascript
-pixelator.init(canvas, 'http://lorempixel.com/500/500/animals');
-pixelator.draw(); //draw it...but PIXELATED!
+pixelatore.init(canvas, 'http://lorempixel.com/500/500/animals');
+pixelatore.draw(); //draw it...but PIXELATED!
 
 ```
 
 ### But I have my own image already loaded!
-*pixelator.js* is also smart enough to know if you give it an image resource instead of a path to an image to load.
+*pixelatore* is also smart enough to know if you give it an image resource instead of a path to an image to load.
 
 Assuming the same setup as above with these differences:
 
@@ -51,14 +51,14 @@ var customImg = new Image();
 customImg.src ='http://lorempixel.com/500/500/animals';
 ```
 
-When the image is done doing it's thing, just tell *pixelator.init* which image to draw where.
+When the image is done doing it's thing, just tell *pixelatore.init* which image to draw where.
 
 ```javascript
-pixelator.init(canvas, customImg);
-pixelator.draw();
+pixelatore.init(canvas, customImg);
+pixelatore.draw();
 ```
 
-Cool, you made your own image using javascript. What about an html image? Since making an image using the `Image()` constructor is the same as loading an image via html `<img>`, just grab the image by id (or some other cool way), and tell pixelator what to draw and where to draw.
+Cool, you made your own image using javascript. What about an html image? Since making an image using the `Image()` constructor is the same as loading an image via html `<img>`, just grab the image by id (or some other cool way), and tell pixelatore what to draw and where to draw.
 
 ```html
 <!-- in your html -->
@@ -70,8 +70,8 @@ Then in js assuming the same setup as above:
 ```javascript
 var image = document.getElementById('pImg');
 
-pixelator.init(canvas, image);
-pixelator.draw();
+pixelatore.init(canvas, image);
+pixelatore.draw();
 ```
 
 As long as the image to draw is [drawable by the canvas](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Canvas_tutorial/Using_images#Getting_images_to_draw), you can pixelate it!
@@ -91,13 +91,13 @@ sCtx.arc(secondary.width/2, secondary.height/2, secondary.height/4, 0, 2*Math.PI
 sCtx.fill();
 
 //use the secondary canvas as the image to pixelate
-pixelator.init(primary, secondary);
-pixelator.draw();
+pixelatore.init(primary, secondary);
+pixelatore.draw();
 ```
 
 ## Options
 
-There are a few options that augment the *pixelator*. All can be changed easily by passing in an object into the `init()` function:
+There are a few options that augment the *pixelatore*. All can be changed easily by passing in an object into the `init()` function:
 
 ```javascript
 //begin the overriding!
@@ -120,11 +120,11 @@ var options = {
 };
 ```
 
-Give the options to the *pixelator*!
+Give the options to the *pixelatore*!
 
 ``` javascript
-//feed the pixelator...
-pixelator.init(canvas, 'path/to/image', options);
+//feed the pixelatore...
+pixelatore.init(canvas, 'path/to/image', options);
 ```
 
 All options to be configured to your pleasure include:
@@ -158,6 +158,6 @@ default behavior is to `var isLoaded = true`.
 
 ## Things to know
 
-Since *pixelator* relies on scaling a draw image on the canvas, then drawing that canvas scaled larger, any scale value greater than 100 will effectively scale that image larger than the size of the canvas.
+Since *pixelatore* relies on scaling a draw image on the canvas, then drawing that canvas scaled larger, any scale value greater than 100 will effectively scale that image larger than the size of the canvas.
 
 Scale values that are floats work too, but causes the image to not be correctly rendered onto the canvas. While using a float will not break anything, try to stick to integer values in order to get the best size.
