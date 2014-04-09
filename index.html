@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pixelate | Demo</title>
+  <script type='text/javascript' src='./scripts/pixelator.js'></script>
+
+</head>
+<body>
+  <canvas id='field' width='900' height='600'>DALEKS HAVE NO CONCEPT OF OUTDATED BROWSERS! EXPLAIN!?</canvas>
+  <input type='range' max='100' min='1' step='1' id='boxRange'>
+
+  <script type='text/javascript'>
+
+    var canvas = document.getElementById('field'),
+        range = document.getElementById('boxRange');
+
+    //setup and draw initial
+    pixelator.init(canvas, './assets/owl.jpg',
+    {
+      callback : function() {
+        console.log('loaded');
+
+        pixelator.draw(1);
+      }
+    });
+
+    //add range event listener -- click on random part of range
+    range.addEventListener('change', function(ev) {
+      pixelator.draw(this.value);
+
+    },false);
+
+    //event listener -- drag slider around
+    range.addEventListener('input', function(ev) {
+      pixelator.draw(this.value);
+
+    },false);
+
+  </script>
+</body>
+</html>
