@@ -2,6 +2,8 @@
 
 Lightening speed pixelation of images rendered to a `<canvas>`.
 
+Demo [here](http://anpetersen.me/pixelator.js)
+
 ## Module or Module?
 
 There are two ways to use *pixelator.js*:
