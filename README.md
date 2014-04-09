@@ -76,6 +76,8 @@ pixelator.init(canvas, image);
 pixelator.draw();
 ```
 
+**Even other canvases...**
+
 As long as the image to draw is [drawable by the canvas](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Canvas_tutorial/Using_images#Getting_images_to_draw), you can pixelate it!
 
 ```javascript
