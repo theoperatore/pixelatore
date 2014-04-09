@@ -1,6 +1,8 @@
 # Pixelatore
 
-Lightening speed pixelation of images rendered to a `<canvas>`.
+Lightning speed pixelation of images rendered to a `<canvas>`.
+
+Demo [here](http://anpetersen.me/pixelator.js)
 
 ## Module or Module?
 
@@ -73,6 +75,8 @@ var image = document.getElementById('pImg');
 pixelatore.init(canvas, image);
 pixelatore.draw();
 ```
+
+**Even other canvases...**
 
 As long as the image to draw is [drawable by the canvas](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Canvas_tutorial/Using_images#Getting_images_to_draw), you can pixelate it!
 
